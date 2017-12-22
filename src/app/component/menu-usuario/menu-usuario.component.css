@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
+
+.drop-down-box{
+    font-family: 'Rubik', sans-serif;
+    right: 0;
+    width: 244px;
+    left: initial;
+    top: 37px;
+    display: block;
+    background: none;
+    box-shadow: 0 0 0 transparent;
+    color: #555;
+}
+
+.drop-down-box::after {
+    display: block;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #FFFFFF;
+    position: absolute;
+    top: -6px;
+    left: initial;
+    right: 30px;
+    margin-left: -6px;
+}
+
+.close-box{
+    display: none;
+}
+
+.user-menu-group{
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.17);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    
+}
+
+.user-info{
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.user-avatar{
+    text-align: center;
+    text-decoration: none;
+    color: #555;
+}
+
+.image{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.details{
+    font-family: 'Rubik', sans-serif;
+}
+
+.details > span{
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+}
+
+.details > p{
+    font-size: 13px;
+    line-height: 18px;
+    color: #999999;
+    margin: 5px;
+}
+
+
+img{
+    width: 50px;
+}
+
+ul.account-menu{
+    margin: 0;
+    display: block;
+    padding: 15px 0;
+    color: #999999;
+    font-size: 13px;
+    list-style-type: none;
+}
+li{
+    text-align: center;
+    padding: 5px;
+}
+
+li:hover{
+    color: #3f51b5;
+    cursor: pointer
+}

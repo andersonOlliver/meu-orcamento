@@ -1,0 +1,5 @@
+{
+    "http.proxy": "http://35355:olliver89632@proxy.pjmt.local:3128",
+    "http.proxyAuthorization": null,
+    "http.proxyStrictSSL": false
+}

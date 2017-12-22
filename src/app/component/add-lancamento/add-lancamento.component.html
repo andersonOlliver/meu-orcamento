@@ -1,0 +1,42 @@
+<mat-card>
+  <!-- <form action=""> -->
+    <mat-card-header>
+      <mat-card-title class="text-header">Adicionar Lançamento</mat-card-title>
+
+
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput [(ngModel)]="lancamento.descricao" placeholder="Descrição">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input #valor matInput [(ngModel)]="lancamento.valor" [formControl]="valorControl" type="number" placeholder="Valor" required>
+        <mat-error *ngIf="valorControl.hasError('required')">Informe o valor</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" (focus)="picker.open()" placeholder="Selecione a data">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Categoria" [(ngModel)]="lancamento.categoria" [formControl]="categoriaControl" required>
+          <mat-option value="option">Alimentação</mat-option>
+          <mat-option value="option">Salário</mat-option>
+          <mat-option value="option">Outros</mat-option>
+          <mat-option value="option">Transporte</mat-option>
+        </mat-select>
+        <mat-error *ngIf="categoriaControl.hasError('required')">Selecione uma categoria</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-fab (click)="onSaveClick()" color="primary">
+        <mat-icon aria-label="Example icon-button with a heart icon">check</mat-icon>
+      </button>
+    </mat-card-actions>
+  <!-- </form> -->
+</mat-card>
