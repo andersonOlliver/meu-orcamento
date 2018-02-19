@@ -18,8 +18,7 @@ export class AddLancamentoComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddLancamentoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private lancamentoService: LancamentoService,
-    private fb: FormBuilder,
-    private angularFire: AngularFireDatabase) { }
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.lancamento = new Lancamento();

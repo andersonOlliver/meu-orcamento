@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatIconModule, MatIcon, MatToolbarModule, MatNavList, MatSidenavModule, MatListModule, MatDialogModule, MatDialogRef, MatCheckboxModule, 
+import { MatIconModule, MatIcon, MatToolbarModule, MatNavList, MatSidenavModule, MatListModule, MatDialogModule, MatDialogRef, MatCheckboxModule,
           MatFormFieldModule, MatMenuModule, MatInputModule, MatButtonModule, MatCardModule, MatSelectModule, MatTableModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { AngularFireModule } from 'angularfire2/index';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { MenuUsuarioComponent } from './component/menu-usuario/menu-usuario.component';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
 
 
 @NgModule({
@@ -25,13 +26,13 @@ import { MenuUsuarioComponent } from './component/menu-usuario/menu-usuario.comp
     AppComponent,
     HomeComponent,
     AddLancamentoComponent,
-    MenuUsuarioComponent
+    MenuUsuarioComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule, BrowserAnimationsModule,
     ReactiveFormsModule, FormsModule,
-    AngularFireModule.initializeApp(FirebaseConfig),
+    // AngularFireModule.initializeApp(FirebaseConfig),
 
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
     MatCheckboxModule, MatFormFieldModule, MatMenuModule, MatInputModule, MatButtonModule,

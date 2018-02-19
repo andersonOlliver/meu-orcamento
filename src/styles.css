@@ -4,3 +4,9 @@
 mat-dialog-container.mat-dialog-container{
     padding: 0 !important;
 }
+
+button.mat-fab {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
