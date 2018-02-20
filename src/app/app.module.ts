@@ -24,7 +24,7 @@ import {MenuUsuarioComponent} from './component/menu-usuario/menu-usuario.compon
     AppComponent,
     HomeComponent,
     AddLancamentoComponent,
-    MenuUsuarioComponent
+    MenuUsuarioComponent,
   ],
   imports: [
     AppRoutingModule,
