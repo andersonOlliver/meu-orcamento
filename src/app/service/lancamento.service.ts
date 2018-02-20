@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Lancamento} from '../model/lancamento';
-import {AngularFireDatabase} from 'angularfire2/database';
+// import {AngularFireDatabase} from 'angularfire2/database';
 import {Categoria} from '../model/categoria';
 
 @Injectable()
