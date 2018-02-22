@@ -1,25 +1,52 @@
 import {Injectable} from '@angular/core';
-import {Lancamento} from '../model/lancamento';
+import {Lancamento, TipoLancamento} from '../model/lancamento';
 // import {AngularFireDatabase} from 'angularfire2/database';
 import {Categoria} from '../model/categoria';
+import {CategoriaService} from './categoria.service';
 
 @Injectable()
 export class LancamentoService {
 
-  private categorias: Categoria[] = [
-    {id: '01', titulo: 'Alimentacao', categoriaPai: null},
-    {id: '02', titulo: 'Transporte', categoriaPai: null},
-    {id: '03', titulo: 'Salario', categoriaPai: null}
-  ];
+  private categorias: Categoria[];
 
   private lancamentos: Lancamento[] = [];
 
-  constructor(
-    // private angularFire: AngularFireDatabase
+  constructor(private categoriaService: CategoriaService
+              // private angularFire: AngularFireDatabase
   ) {
-    this.lancamentos.push(<Lancamento>{position: 1, descricao: '  ', valor: 20.0, data: Date.now(), categoria: this.categorias[2]});
-    this.lancamentos.push(<Lancamento>{position: 2, descricao: '  ', valor: 40.0, data: Date.now(), categoria: 'Alimentacao'});
-    this.lancamentos.push(<Lancamento>{position: 3, descricao: '  ', valor: 20.0, data: Date.now(), categoria: 'Transporte'});
+    this.categorias = this.categoriaService.getAll();
+    this.lancamentos.push(<Lancamento>{
+      position: 1,
+      descricao: 'Salário Sigma',
+      valor: 2900.0,
+      data: Date.now(),
+      categoria: this.categoriaService.getByTitulo('Salário'),
+      tipoLancamento: TipoLancamento.RECEITA
+    });
+    this.lancamentos.push(<Lancamento>{
+      position: 2,
+      descricao: 'Aluguel',
+      valor: 20.0,
+      data: Date.now(),
+      categoria: this.categorias[2],
+      tipoLancamento: TipoLancamento.DESPESA
+    });
+    this.lancamentos.push(<Lancamento>{
+      position: 3,
+      descricao: 'Almoço',
+      valor: 40.0,
+      data: Date.now(),
+      categoria: this.categoriaService.getByTitulo('Alimentação'),
+      tipoLancamento: TipoLancamento.DESPESA
+    });
+    this.lancamentos.push(<Lancamento>{
+      position: 4,
+      descricao: 'Combustível',
+      valor: 20.0,
+      data: Date.now(),
+      categoria: this.categoriaService.getByTitulo('Transporte'),
+      tipoLancamento: TipoLancamento.DESPESA
+    });
   }
 
   getAll() {

@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HomeComponent} from './component/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import 'hammerjs';
 import {AddLancamentoComponent} from './component/add-lancamento/add-lancamento.component';
@@ -14,7 +13,12 @@ import {AngularFireModule} from 'angularfire2/index';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {MenuUsuarioComponent} from './component/menu-usuario/menu-usuario.component';
 import {SharedModule} from './shared/shared.module';
+import {HomeComponent} from './pages/home/home.component';
+import {registerLocaleData} from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import localeExtraPt from '@angular/common/locales/extra/pt';
 
+registerLocaleData(localePt, 'pt', localeExtraPt);
 
 @NgModule({
   declarations: [
@@ -29,7 +33,6 @@ import {SharedModule} from './shared/shared.module';
     ReactiveFormsModule, FormsModule,
     AngularFireModule.initializeApp(FirebaseConfig),
     SharedModule,
-
   ],
   providers: [ LancamentoService, AngularFireDatabase ],
   bootstrap: [AppComponent],

@@ -8,14 +8,14 @@
 
     <span class="example-spacer"></span>
     <span>
-      <mat-icon class="example-icon">Settings</mat-icon>
-      <span>
+      <mat-icon class="example-icon">settings</mat-icon>
+      <span (click)="openUserMenu()" >
         <img class="profile" src="assets/img/photo.jpg" alt="Profile">
       </span>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
-<menu-usuario [isOpen]="false"
+<menu-usuario [isOpen]="openMenu"
               style="position: absolute; z-index: 3; right: -10px; top: 60px; left: initial"></menu-usuario>
 
 <mat-sidenav-container class="example-container">
@@ -23,10 +23,12 @@
                [fixedTopGap]="options.value.top"
                [fixedBottomGap]="options.value.bottom">
     <mat-list role="list">
-      <a mat-list-item routerLink="/">Lançamentos</a>
+      <a mat-list-item routerLink="/">Início</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/lancamento">Lançamentos</a>
+      <mat-divider></mat-divider>
       <a mat-list-item routerLink="categoria">Categoria</a>
-      <mat-list-item role="listitem">Menu</mat-list-item>
-      <mat-list-item role="listitem">Menu</mat-list-item>
+      <!--<mat-divider></mat-divider>-->
     </mat-list>
   </mat-sidenav>
 

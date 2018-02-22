@@ -26,6 +26,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  color: chocolate;
 }
 
 .example-icon {
@@ -51,4 +52,9 @@ mat-toolbar-row > div {
   height: 22px;
   width: auto;
   cursor: pointer;
+}
+
+
+mat-list{
+  width: 100%;
 }

@@ -7,5 +7,9 @@ export class Lancamento {
   valor: number;
   data: Date | number;
   categoria: Categoria | string;
+  tipoLancamento?: TipoLancamento | string;
+}
 
+export enum TipoLancamento {
+  RECEITA = 'Receita', DESPESA = 'Despesa'
 }

@@ -23,6 +23,10 @@ export class CategoriaService {
     return this.categorias;
   }
 
+  getByTitulo(titulo: string): Categoria {
+    return this.categorias.find(c => c.titulo === titulo);
+  }
+
   adicionar(categoria: Categoria) {
     this.categorias.push(categoria);
   }

@@ -10,3 +10,7 @@ button.mat-fab {
   bottom: 15px;
   right: 15px;
 }
+
+a{
+  text-decoration: none;
+}
