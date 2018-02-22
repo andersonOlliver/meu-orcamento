@@ -1,9 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule,
-  MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatSelectModule, MatSidenavModule, MatTableModule, MatToolbarModule
-} from '@angular/material';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,6 +13,7 @@ import {FirebaseConfig} from './../environments/firebase.config';
 import {AngularFireModule} from 'angularfire2/index';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {MenuUsuarioComponent} from './component/menu-usuario/menu-usuario.component';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
@@ -31,10 +28,8 @@ import {MenuUsuarioComponent} from './component/menu-usuario/menu-usuario.compon
     BrowserModule, BrowserAnimationsModule,
     ReactiveFormsModule, FormsModule,
     AngularFireModule.initializeApp(FirebaseConfig),
+    SharedModule,
 
-    MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
-    MatCheckboxModule, MatFormFieldModule, MatMenuModule, MatInputModule, MatButtonModule,
-    MatCardModule, MatSelectModule, MatTableModule, MatDatepickerModule, MatNativeDateModule
   ],
   providers: [ LancamentoService, AngularFireDatabase ],
   bootstrap: [AppComponent],
