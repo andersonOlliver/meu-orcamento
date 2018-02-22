@@ -5,7 +5,7 @@ export class Lancamento {
   position: number;
   descricao: string;
   valor: number;
-  data: Date | number;
+  data: Date | number | string;
   categoria: Categoria | string;
   tipoLancamento?: TipoLancamento | string;
 }

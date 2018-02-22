@@ -4,6 +4,7 @@ import {MatDialog, MatTableDataSource} from '@angular/material';
 import {LancamentoService} from '../../service/lancamento.service';
 import {AddLancamentoComponent} from '../../component/add-lancamento/add-lancamento.component';
 import {Lancamento, TipoLancamento} from '../../model/lancamento';
+import {ShowLancamento} from '../../model/show-lancamento';
 
 @Component({
   selector: 'app-lancamento',
@@ -16,6 +17,7 @@ export class LancamentoComponent implements OnInit {
   options: FormGroup;
   usuario: string;
   lancamentos: Lancamento[];
+  showLancamentos: ShowLancamento[];
   receita = TipoLancamento.RECEITA;
 
   constructor(public dialog: MatDialog, private fb: FormBuilder, private lancamentoService: LancamentoService) {
@@ -29,6 +31,7 @@ export class LancamentoComponent implements OnInit {
   ngOnInit() {
     // this.dataSource = new MatTableDataSource(this.lancamentoService.getAll());
     this.lancamentos = this.lancamentoService.getAll();
+    this.showLancamentos = this.lancamentoService.getGroupByData();
     // console.log(this.dataSource);
   }
 

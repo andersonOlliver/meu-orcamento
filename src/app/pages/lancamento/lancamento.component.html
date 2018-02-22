@@ -11,70 +11,83 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por" style="width: 100%; ">
     </mat-form-field>
 
-  <mat-list>
-    <mat-list-item *ngFor="let lancamento of lancamentos">
-      <table>
-        <thead></thead>
-        <tbody>
-
-        </tbody>
-      </table>
-        <span>{{ lancamento.tipoLancamento}}</span>
-        <span >{{ lancamento.descricao}}</span>
-        <span>{{ lancamento.categoria}}</span>
-        <span [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4': ''">{{ lancamento.valor | currency:'R$':'symbol':'2.2-2':'pt'}}</span>
-    </mat-list-item>
-  </mat-list>
+    <mat-list>
+      <mat-list-item *ngFor="let item of showLancamentos; last as last">
+        <div class="data">
+        {{item.data }}
+        </div>
+        <div mat-line *ngFor="let lancamento of item.lancamentos">
+          <div class="ii">
+            <span class="flag" [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">
+             <i class="material-icons">fiber_manual_record</i>
+            </span>
+            <span class="descricao">
+              {{lancamento.descricao}}
+            </span>
+            <span class="categoria">
+               <span class="flag" [style.color]="lancamento.categoria.cor ? lancamento.categoria.cor : 'black'">
+                <i class="material-icons">label</i>
+              </span>
+              {{lancamento.categoria.titulo}}
+            </span>
+            <span class="valor" [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4': ''">
+              {{lancamento.valor | currency:'R$':'symbol':'2.2-2':'pt'}}
+            </span>
+          </div>
+        </div>
+        <mat-divider *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-list>
 
 
     <!--<mat-table #table [dataSource]="dataSource">-->
 
-      <!--&lt;!&ndash; Position Column &ndash;&gt;-->
-      <!--&lt;!&ndash;<ng-container matColumnDef="tipo" style="display: none">&ndash;&gt;-->
-      <!--&lt;!&ndash;<mat-header-cell *matHeaderCellDef> No.</mat-header-cell>&ndash;&gt;-->
-      <!--&lt;!&ndash;<mat-cell *matCellDef="let element"> {{element.tipoLancamento}}</mat-cell>&ndash;&gt;-->
-      <!--&lt;!&ndash;</ng-container>&ndash;&gt;-->
+    <!--&lt;!&ndash; Position Column &ndash;&gt;-->
+    <!--&lt;!&ndash;<ng-container matColumnDef="tipo" style="display: none">&ndash;&gt;-->
+    <!--&lt;!&ndash;<mat-header-cell *matHeaderCellDef> No.</mat-header-cell>&ndash;&gt;-->
+    <!--&lt;!&ndash;<mat-cell *matCellDef="let element"> {{element.tipoLancamento}}</mat-cell>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ng-container>&ndash;&gt;-->
 
-      <!--&lt;!&ndash; Descrição Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="descricao">-->
-        <!--<mat-header-cell *matHeaderCellDef> Descrição</mat-header-cell>-->
-        <!--<mat-cell *matCellDef="let element">-->
-          <!--<span class="flag" [style.color]="element.tipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">-->
-            <!--<i class="material-icons">fiber_manual_record</i>-->
-          <!--</span>-->
-          <!--{{element.descricao}}-->
-        <!--</mat-cell>-->
-      <!--</ng-container>-->
-
-
-      <!--&lt;!&ndash; Categoria Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="categoria">-->
-        <!--<mat-header-cell *matHeaderCellDef> Categoria</mat-header-cell>-->
-        <!--<mat-cell *matCellDef="let element">-->
-          <!--<span class="flag" [style.color]="element.categoria.cor ? element.categoria.cor : 'black'">-->
-            <!--<i class="material-icons">label</i>-->
-          <!--</span>-->
-          <!--{{ element.categoria?.titulo || element.categoria}}-->
-        <!--</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--&lt;!&ndash; Descrição Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="data">-->
-        <!--<mat-header-cell *matHeaderCellDef> Data</mat-header-cell>-->
-        <!--<mat-cell *matCellDef="let element"> {{element.data | date: 'shortDate': '' : 'pt'}}</mat-cell>-->
-      <!--</ng-container>-->
+    <!--&lt;!&ndash; Descrição Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="descricao">-->
+    <!--<mat-header-cell *matHeaderCellDef> Descrição</mat-header-cell>-->
+    <!--<mat-cell *matCellDef="let element">-->
+    <!--<span class="flag" [style.color]="element.tipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">-->
+    <!--<i class="material-icons">fiber_manual_record</i>-->
+    <!--</span>-->
+    <!--{{element.descricao}}-->
+    <!--</mat-cell>-->
+    <!--</ng-container>-->
 
 
-      <!--&lt;!&ndash; Valor Column &ndash;&gt;-->
-      <!--<ng-container matColumnDef="valor">-->
-        <!--<mat-header-cell *matHeaderCellDef> Valor</mat-header-cell>-->
-        <!--<mat-cell *matCellDef="let element" [style.color]="element.tipoLancamento === receita ? '#56CAA4': ''">-->
-          <!--{{element.valor | currency:'R$':'symbol':'2.2-2':'pt'}}-->
-        <!--</mat-cell>-->
-      <!--</ng-container>-->
+    <!--&lt;!&ndash; Categoria Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="categoria">-->
+    <!--<mat-header-cell *matHeaderCellDef> Categoria</mat-header-cell>-->
+    <!--<mat-cell *matCellDef="let element">-->
+    <!--<span class="flag" [style.color]="element.categoria.cor ? element.categoria.cor : 'black'">-->
+    <!--<i class="material-icons">label</i>-->
+    <!--</span>-->
+    <!--{{ element.categoria?.titulo || element.categoria}}-->
+    <!--</mat-cell>-->
+    <!--</ng-container>-->
 
-      <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
-      <!--<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
+    <!--&lt;!&ndash; Descrição Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="data">-->
+    <!--<mat-header-cell *matHeaderCellDef> Data</mat-header-cell>-->
+    <!--<mat-cell *matCellDef="let element"> {{element.data | date: 'shortDate': '' : 'pt'}}</mat-cell>-->
+    <!--</ng-container>-->
+
+
+    <!--&lt;!&ndash; Valor Column &ndash;&gt;-->
+    <!--<ng-container matColumnDef="valor">-->
+    <!--<mat-header-cell *matHeaderCellDef> Valor</mat-header-cell>-->
+    <!--<mat-cell *matCellDef="let element" [style.color]="element.tipoLancamento === receita ? '#56CAA4': ''">-->
+    <!--{{element.valor | currency:'R$':'symbol':'2.2-2':'pt'}}-->
+    <!--</mat-cell>-->
+    <!--</ng-container>-->
+
+    <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+    <!--<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
     <!--</mat-table>button-->
 
     <!--<button mat-fab color="primary" (click)="openDialog()">-->
