@@ -1,6 +1,8 @@
 import {ChangeDetectorRef, Component, ContentChild, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {Categoria} from '../../model/categoria';
 import {CategoriaService} from '../../service/categoria.service';
+import {MatDialog} from '@angular/material';
+import {AdicionaCategoriaComponent} from '../../component/adiciona-categoria/adiciona-categoria.component';
 
 @Component({
   selector: 'app-categoria',
@@ -14,7 +16,9 @@ export class CategoriaComponent implements OnInit {
   categorias: Array<Categoria>;
   showActionLinks = false;
 
-  constructor(private categoriaService: CategoriaService, private ref: ChangeDetectorRef) {
+  constructor(private categoriaService: CategoriaService,
+              public dialog: MatDialog,
+              private ref: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -30,5 +34,16 @@ export class CategoriaComponent implements OnInit {
   unShow(item) {
     console.log('unshowww', item);
     (<HTMLElement>item).style.display = 'none';
+  }
+
+  openAdicionaCategoria() {
+    const dialogRef = this.dialog.open(AdicionaCategoriaComponent, {
+      width: '470px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 }
