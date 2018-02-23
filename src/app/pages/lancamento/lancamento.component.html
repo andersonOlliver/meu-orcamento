@@ -7,33 +7,35 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-form-field style="align-items: right">
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por" style="width: 100%; ">
-    </mat-form-field>
+    <!--<mat-form-field style="align-items: right">-->
+      <!--&lt;!&ndash;<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar por" style="width: 100%; ">&ndash;&gt;-->
+    <!--</mat-form-field>-->
+
+
 
     <mat-list>
-      <mat-list-item *ngFor="let item of showLancamentos; last as last">
-        <div class="data">
-        {{item.data }}
-        </div>
-        <div mat-line *ngFor="let lancamento of item.lancamentos">
-          <div class="ii">
-            <span class="flag" [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">
+      <mat-list-item *ngFor="let lancamento of lancamentos; last as last">
+        <!--<div class="data">-->
+        <!--{{item.data }}-->
+        <!--</div>-->
+        <div mat-line>
+          <!--<div class="ii">-->
+            <span class="flag" [style.color]="lancamento.TipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">
              <i class="material-icons">fiber_manual_record</i>
             </span>
             <span class="descricao">
-              {{lancamento.descricao}}
+              {{lancamento.Descricao}}
             </span>
             <span class="categoria">
-               <span class="flag" [style.color]="lancamento.categoria.cor ? lancamento.categoria.cor : 'black'">
+               <span class="flag" [style.color]="lancamento.Categoria.Cor ? lancamento.Categoria.Cor : 'black'">
                 <i class="material-icons">label</i>
               </span>
-              {{lancamento.categoria.titulo}}
+              {{lancamento.Categoria.Titulo}}
             </span>
-            <span class="valor" [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4': ''">
-              {{lancamento.valor | currency:'R$':'symbol':'2.2-2':'pt'}}
+            <span class="valor" [style.color]="lancamento.TipoLancamento === receita ? '#56CAA4': ''">
+              {{lancamento.Valor | currency:'R$':'symbol':'2.2-2':'pt'}}
             </span>
-          </div>
+          <!--</div>-->
         </div>
         <mat-divider *ngIf="!last"></mat-divider>
       </mat-list-item>
@@ -95,3 +97,5 @@
     <!--</button>-->
   </mat-card-content>
 </mat-card>
+
+<app-adiciona-lancamento></app-adiciona-lancamento>

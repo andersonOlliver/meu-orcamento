@@ -1,15 +1,19 @@
 import {Categoria} from './categoria';
 
 export class Lancamento {
-  id: AAGUID;
-  position: number;
-  descricao: string;
-  valor: number;
-  data: Date | number | string;
-  categoria: Categoria | string;
-  tipoLancamento?: TipoLancamento | string;
+  LancamentoId: AAGUID;
+  Descricao: string;
+  Valor: number;
+  DataLancamento: Date | number | string;
+  CategoriaId: AAGUID;
+  Categoria: Categoria;
+  TipoLancamento?: TipoLancamento | number;
+
+  constructor(dataLancamento?: Date) {
+    this.DataLancamento = dataLancamento;
+  }
 }
 
 export enum TipoLancamento {
-  RECEITA = 'Receita', DESPESA = 'Despesa'
+  Receita = 1, Despesa = 0
 }

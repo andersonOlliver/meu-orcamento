@@ -1,0 +1,90 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+mat-card {
+  /*width: 300px;*/
+}
+
+mat-card-title {
+  font-size: 1.1em !important;
+  margin-left: -8px;
+  padding: 20px 0;
+}
+
+.mat-card-header-text {
+  margin-left: 0 !important;
+}
+
+mat-card-header, mat-card-content {
+  padding-left: calc(64px - 24px);
+  padding-right: calc(64px - 24px);
+
+}
+
+mat-card-actions {
+  padding-left: 62px;
+  padding-right: 62px;
+  padding-bottom: 30px !important;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.input-row, .row {
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.input-row label, .row label {
+  font-size: 14px;
+  line-height: 14px;
+  color: #999999;
+  text-align: left;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.input-row .group-field, .row .group-field {
+  position: relative;
+  clear: both;
+  display: block;
+}
+
+input[type="email"], input[type="text"], select, textarea {
+  border: 2px solid #E8EAEB;
+  background: #FFFFFF;
+  line-height: 18px;
+  padding: 7px 8px;
+  float: left;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  -o-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  color: #555555;
+  font-size: 14px;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.help-text {
+  color: #AAAAAA;
+  font-size: 11px;
+  line-height: 13px;
+  display: block;
+  margin: 2px 0 0;
+  clear: both;
+}

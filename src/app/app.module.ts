@@ -17,6 +17,7 @@ import {HomeComponent} from './pages/home/home.component';
 import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localeExtraPt from '@angular/common/locales/extra/pt';
+import { AdicionaLancamentoComponent } from './component/adiciona-lancamento/adiciona-lancamento.component';
 
 registerLocaleData(localePt, 'pt', localeExtraPt);
 

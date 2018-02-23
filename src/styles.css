@@ -43,3 +43,45 @@ a{
 .ui-colorpicker-panel {
   margin-top: -40px !important;
 }
+
+form .input-row .group-field, form .row .group-field {
+  position: relative;
+  clear: both;
+  display: block;
+}
+
+form .input-row .first {
+  padding-left: 0;
+}
+
+form .input-row .last {
+  padding-right: 0;
+}
+
+
+input[type="email"], input[type="text"], select, textarea {
+  border: 2px solid #E8EAEB;
+  background: #FFFFFF;
+  line-height: 18px;
+  padding: 7px 8px;
+  float: left;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  -o-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  color: #555555;
+  font-size: 14px;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.ui-calendar{
+  width: 100%;
+}

@@ -1,10 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Lancamento } from '../../model/lancamento';
-import { LancamentoService } from '../../service/lancamento.service';
-import { FormControl, Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { AngularFireDatabase } from 'angularfire2/database';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {Lancamento} from '../../model/lancamento';
+import {LancamentoService} from '../../service/lancamento.service';
+import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Component({
   selector: 'app-add-lancamento',
@@ -16,17 +16,28 @@ export class AddLancamentoComponent implements OnInit {
   public lancamento: Lancamento;
 
   constructor(public dialogRef: MatDialogRef<AddLancamentoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private lancamentoService: LancamentoService,
-    private fb: FormBuilder) { }
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private lancamentoService: LancamentoService,
+              private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.lancamento = new Lancamento();
   }
 
   onSaveClick() {
-    this.lancamentoService.add(this.lancamento);
+    this.lancamentoService.adicionar(this.lancamento);
     this.dialogRef.close();
+  }
+
+  onSumit() {
+    this.lancamentoService.adicionar(this.lancamento)
+      .subscribe((res: Lancamento) => {
+        if (res.LancamentoId) {
+          this.lancamento = new Lancamento();
+          this.dialogRef.close(res);
+        }
+      });
   }
 
   onNoClick(): void {
@@ -34,6 +45,6 @@ export class AddLancamentoComponent implements OnInit {
   }
 
 
-  categoriaControl = new FormControl('', [Validators.required]);
-  valorControl = new FormControl('', [Validators.required]);
+  // categoriaControl = new FormControl('', [Validators.required]);
+  // valorControl = new FormControl('', [Validators.required]);
 }

@@ -12,13 +12,11 @@ import {ShowLancamento} from '../../model/show-lancamento';
   styleUrls: ['./lancamento.component.css']
 })
 export class LancamentoComponent implements OnInit {
-  displayedColumns = ['descricao', 'categoria', 'data', 'valor'];
-  dataSource: any;
   options: FormGroup;
   usuario: string;
   lancamentos: Lancamento[];
   showLancamentos: ShowLancamento[];
-  receita = TipoLancamento.RECEITA;
+  receita = TipoLancamento.Receita;
 
   constructor(public dialog: MatDialog, private fb: FormBuilder, private lancamentoService: LancamentoService) {
     this.options = fb.group({
@@ -29,17 +27,12 @@ export class LancamentoComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.dataSource = new MatTableDataSource(this.lancamentoService.getAll());
-    this.lancamentos = this.lancamentoService.getAll();
-    this.showLancamentos = this.lancamentoService.getGroupByData();
-    // console.log(this.dataSource);
+    this.lancamentoService.getAll()
+      .subscribe((res: Lancamento[]) => {
+        this.lancamentos = res;
+      });
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddLancamentoComponent, {
@@ -53,7 +46,4 @@ export class LancamentoComponent implements OnInit {
     });
   }
 
-  reload() {
-    this.dataSource.data = this.lancamentoService.getAll();
-  }
 }

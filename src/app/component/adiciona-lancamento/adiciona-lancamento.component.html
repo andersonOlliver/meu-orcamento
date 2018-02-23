@@ -1,0 +1,56 @@
+<mat-card>
+  <form (ngSubmit)="onSubmit()" #lancamentoForm="ngForm">
+    <mat-card-header>
+      <mat-card-title>Novo lançamento</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <div class="input-row">
+        <label for="descricao">Descrição</label>
+        <div class="group-fild">
+          <input id="descricao" type="text" [(ngModel)]="lancamento.Descricao" name="Descrição" title="Descrição"
+                 maxlength="100" required>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="ui-g-6 first">
+          <label for="valor">Valor</label>
+          <div class="group-fild">
+            <input id="valor" type="text" [(ngModel)]="lancamento.Valor" name="Valor" title="Valor" required>
+          </div>
+        </div>
+        <div class="ui-g-6 last">
+          <label for="valor">Data</label>
+          <div class="group-fild">
+            <p-calendar [(ngModel)]="lancamento.DataLancamento" showButtonBar="true"></p-calendar>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label for="categoria">Categoria</label>
+        <div class="group-fild">
+          <ng-select [items]="categorias" bindLabel="Titulo" bindValue="CategoriaId" name="Categoria">
+
+            <ng-template ng-label-tmp let-item="item">
+              <img height="15" width="15" [src]="item.thumbnailUrl"/>
+              <span >{{item.title}}</span>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="15" width="15" [src]="item.thumbnailUrl"/>
+              <span [innerHTML]="item.title" [ngOptionHighlight]="search"></span>
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button type="submit" color="primary" [disabled]="!lancamentoForm.form.valid">
+        Salvar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>
