@@ -6,15 +6,19 @@ import {
   MatMenuModule,
   MatNativeDateModule, MatSelectModule, MatSidenavModule, MatTableModule, MatToolbarModule
 } from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
+    FormsModule,
     MatDividerModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
     MatCheckboxModule, MatFormFieldModule, MatMenuModule, MatInputModule, MatButtonModule,
     MatCardModule, MatSelectModule, MatTableModule, MatDatepickerModule, MatNativeDateModule
   ],
-  exports: [MatDividerModule,
+  exports: [
+    FormsModule,
+    MatDividerModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
     MatCheckboxModule, MatFormFieldModule, MatMenuModule, MatInputModule, MatButtonModule,
     MatCardModule, MatSelectModule, MatTableModule, MatDatepickerModule, MatNativeDateModule]
