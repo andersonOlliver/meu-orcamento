@@ -1,10 +1,10 @@
 export class Categoria {
-  id: AAGUID;
-  titulo: string;
+  CategoriaId: AAGUID;
+  Titulo: string;
   categoriaPai?: Categoria;
-  cor?: string;
+  Cor?: string;
 
   constructor(cor?: string){
-    this.cor = cor;
+    this.Cor = cor;
   }
 }

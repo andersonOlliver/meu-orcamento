@@ -22,28 +22,45 @@ export class CategoriaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categorias = this.categoriaService.getAll();
+    this.categoriaService.getAll()
+      .subscribe((res: Array<Categoria>) => {
+        this.categorias = res;
+      });
   }
 
   show(item) {
-    console.log('showww', item);
     (<HTMLElement>item).style.display = 'inline-block';
-    this.ref.detectChanges();
   }
 
   unShow(item) {
-    console.log('unshowww', item);
     (<HTMLElement>item).style.display = 'none';
   }
 
   openAdicionaCategoria() {
     const dialogRef = this.dialog.open(AdicionaCategoriaComponent, {
-      width: '470px'
+      width: '470px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: Categoria) => {
       console.log('The dialog was closed');
-      // this.animal = result;
+      if (result) {
+        this.categorias.push(result);
+      }
+    });
+  }
+
+  openEditaCategoria(categoria: Categoria) {
+    const dialogRef = this.dialog.open(AdicionaCategoriaComponent, {
+      width: '470px',
+      data: categoria
+    });
+
+    dialogRef.afterClosed().subscribe((result: Categoria) => {
+      console.log('The dialog was closed');
+      if (result && (result.Titulo !== categoria.Titulo || result.Cor !== categoria.Cor)) {
+        const indice = this.categorias.findIndex(i => i.CategoriaId === result.CategoriaId);
+        this.categorias[indice] = result;
+      }
     });
   }
 }

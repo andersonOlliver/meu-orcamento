@@ -17,7 +17,7 @@ export class LancamentoService {
   constructor(private categoriaService: CategoriaService
               // private angularFire: AngularFireDatabase
   ) {
-    this.categorias = this.categoriaService.getAll();
+    this.categorias = this.categoriaService.categorias;
     this.lancamentos.push(<Lancamento>{
       position: 1,
       descricao: 'Salário Sigma',

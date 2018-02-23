@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Categoria} from '../../model/categoria';
+import {CategoriaService} from '../../service/categoria.service';
 
 @Component({
   selector: 'app-adiciona-categoria',
@@ -10,16 +11,39 @@ import {Categoria} from '../../model/categoria';
 export class AdicionaCategoriaComponent implements OnInit {
 
   categoria: Categoria;
-  constructor(public dialogRef: MatDialogRef<AdicionaCategoriaComponent>,
+
+  constructor(private categoriaService: CategoriaService,
+              public dialogRef: MatDialogRef<AdicionaCategoriaComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {
     this.categoria = new Categoria('#3f51b5');
+    if (this.data) {
+      console.log(this.data);
+      this.data.Cor = this.rgb2hex(this.data.Cor);
+      this.categoria = this.data;
+      console.log(this.categoria);
+    }
   }
 
-  onSaveClick() {
+  onSubmit() {
     console.log(this.categoria);
-    this.dialogRef.close();
+    this.categoriaService.adicionar(this.categoria)
+      .subscribe((res: Categoria) => {
+        if (res.CategoriaId) {
+          this.categoria = new Categoria();
+          this.dialogRef.close(res);
+        }
+      });
+    // this.dialogRef.close();
+  }
+
+  private rgb2hex(rgb) {
+    rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+    return (rgb && rgb.length === 4) ? '#' +
+      ('0' + parseInt(rgb[1], 10).toString(16)).slice(-2) +
+      ('0' + parseInt(rgb[2], 10).toString(16)).slice(-2) +
+      ('0' + parseInt(rgb[3], 10).toString(16)).slice(-2) : '';
   }
 }

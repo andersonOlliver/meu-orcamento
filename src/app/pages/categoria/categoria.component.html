@@ -10,14 +10,14 @@
     <mat-list>
       <mat-list-item *ngFor="let categoria of categorias; last as last">
         <div #item class="item-list" (mouseover)="show(links)" (mouseout)="unShow(links)">
-          <span class="flag" [style.color]="categoria.cor ? categoria.cor : 'black'">
+          <span class="flag" [style.color]="categoria.Cor ? categoria.Cor : 'black'">
             <i class="material-icons">label</i>
           </span>
 
-          <span>{{categoria.titulo}}</span>
+          <span>{{categoria.Titulo}}</span>
 
           <span #links class="links">
-            <a class="editar" href="#">editar</a>
+            <a class="editar" (click)="openEditaCategoria(categoria)">editar</a>
             <a class="excluir" href="#">excluir</a>
           </span>
         </div>

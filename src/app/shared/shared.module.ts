@@ -7,9 +7,11 @@ import {
   MatNativeDateModule, MatSelectModule, MatSidenavModule, MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {ColorPickerModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
+    ColorPickerModule,
     FormsModule,
     MatDividerModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
@@ -17,6 +19,7 @@ import {FormsModule} from '@angular/forms';
     MatCardModule, MatSelectModule, MatTableModule, MatDatepickerModule, MatNativeDateModule
   ],
   exports: [
+    ColorPickerModule,
     FormsModule,
     MatDividerModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,

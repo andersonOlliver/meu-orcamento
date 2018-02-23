@@ -33,3 +33,13 @@ button.mat-fab {
 a{
   text-decoration: none;
 }
+
+.ui-colorpicker-preview,
+.color-picker {
+  height: 40px;
+  width: 100% !important;
+}
+
+.ui-colorpicker-panel {
+  margin-top: -40px !important;
+}

@@ -14,6 +14,7 @@ mat-card {
 mat-card-title {
   font-size: 1.1em !important;
   margin-left: -8px;
+  padding: 20px 0;
 }
 
 .mat-card-header-text {
@@ -89,8 +90,16 @@ input[type="email"], input[type="text"], select, textarea {
   clear: both;
 }
 
-input {
-  width: 100%;
+#cor,
+.ui-colorpicker-preview {
+  width: 100% !important;
+}
+
+input,
+p-colorpicker,
+.ui-colorpicker,
+input.ui-colorpicker-preview {
+  width: 100% !important;
 }
 
 input[type=color] {
