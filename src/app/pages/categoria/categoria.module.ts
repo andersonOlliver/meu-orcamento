@@ -7,7 +7,9 @@ import {CategoriaService} from '../../service/categoria.service';
 import {SharedModule} from '../../shared/shared.module';
 import {AdicionaCategoriaComponent} from '../../component/adiciona-categoria/adiciona-categoria.component';
 import {HttpModule} from '@angular/http';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {HeaderInterceptor} from '../../Interceptors/HeaderInterceptor';
+import {AuthService} from '../../auth/auth.service';
 
 @NgModule({
   imports: [
@@ -21,8 +23,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     CategoriaComponent
   ],
   providers: [
+    AuthService,
     CategoriaService,
-    HttpClient
+    HttpClient,
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
   ],
   entryComponents: [
     AdicionaCategoriaComponent

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MatDialog, MatTableDataSource} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {LancamentoService} from '../../service/lancamento.service';
-import {AddLancamentoComponent} from '../../component/add-lancamento/add-lancamento.component';
 import {Lancamento, TipoLancamento} from '../../model/lancamento';
 import {ShowLancamento} from '../../model/show-lancamento';
+import {AdicionaLancamentoComponent} from '../../component/adiciona-lancamento/adiciona-lancamento.component';
 
 @Component({
   selector: 'app-lancamento',
@@ -35,7 +35,7 @@ export class LancamentoComponent implements OnInit {
 
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddLancamentoComponent, {
+    const dialogRef = this.dialog.open(AdicionaLancamentoComponent, {
       width: '550px',
       data: {usuario: this.usuario}
     });

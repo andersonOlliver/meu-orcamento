@@ -20,20 +20,20 @@
         <!--</div>-->
         <div mat-line>
           <!--<div class="ii">-->
-            <span class="flag" [style.color]="lancamento.TipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">
+            <span class="flag" [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4' : '#FF7E7C'">
              <i class="material-icons">fiber_manual_record</i>
             </span>
             <span class="descricao">
               {{lancamento.Descricao}}
             </span>
             <span class="categoria">
-               <span class="flag" [style.color]="lancamento.Categoria.Cor ? lancamento.Categoria.Cor : 'black'">
+               <span class="flag" [style.color]="lancamento.categoria.cor ? lancamento.categoria.cor : 'black'">
                 <i class="material-icons">label</i>
               </span>
-              {{lancamento.Categoria.Titulo}}
+              {{lancamento.categoria.titulo}}
             </span>
-            <span class="valor" [style.color]="lancamento.TipoLancamento === receita ? '#56CAA4': ''">
-              {{lancamento.Valor | currency:'R$':'symbol':'2.2-2':'pt'}}
+            <span class="valor" [style.color]="lancamento.tipoLancamento === receita ? '#56CAA4': ''">
+              {{lancamento.valor | currency:'R$':'symbol':'2.2-2':'pt'}}
             </span>
           <!--</div>-->
         </div>

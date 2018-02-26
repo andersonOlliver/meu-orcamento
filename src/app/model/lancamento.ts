@@ -1,16 +1,16 @@
 import {Categoria} from './categoria';
 
 export class Lancamento {
-  LancamentoId: AAGUID;
-  Descricao: string;
-  Valor: number;
-  DataLancamento: Date | number | string;
-  CategoriaId: AAGUID;
-  Categoria: Categoria;
-  TipoLancamento?: TipoLancamento | number;
+  lancamentoId: AAGUID;
+  descricao: string;
+  valor: number;
+  dataLancamento: Date | number | string;
+  categoriaId: AAGUID;
+  categoria: Categoria;
+  tipoLancamento?: TipoLancamento | number;
 
   constructor(dataLancamento?: Date) {
-    this.DataLancamento = dataLancamento;
+    this.dataLancamento = dataLancamento;
   }
 }
 

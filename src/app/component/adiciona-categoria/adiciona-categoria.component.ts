@@ -20,10 +20,7 @@ export class AdicionaCategoriaComponent implements OnInit {
   ngOnInit() {
     this.categoria = new Categoria('#3f51b5');
     if (this.data) {
-      console.log(this.data);
-      this.data.Cor = this.rgb2hex(this.data.Cor);
       this.categoria = this.data;
-      console.log(this.categoria);
     }
   }
 
@@ -31,7 +28,7 @@ export class AdicionaCategoriaComponent implements OnInit {
     console.log(this.categoria);
     this.categoriaService.adicionar(this.categoria)
       .subscribe((res: Categoria) => {
-        if (res.CategoriaId) {
+        if (res.categoriaId) {
           this.categoria = new Categoria();
           this.dialogRef.close(res);
         }

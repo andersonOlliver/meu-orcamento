@@ -57,8 +57,8 @@ export class CategoriaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: Categoria) => {
       console.log('The dialog was closed');
-      if (result && (result.Titulo !== categoria.Titulo || result.Cor !== categoria.Cor)) {
-        const indice = this.categorias.findIndex(i => i.CategoriaId === result.CategoriaId);
+      if (result && (result.titulo !== categoria.titulo || result.cor !== categoria.cor)) {
+        const indice = this.categorias.findIndex(i => i.categoriaId === result.categoriaId);
         this.categorias[indice] = result;
       }
     });

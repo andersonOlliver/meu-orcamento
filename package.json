@@ -25,6 +25,7 @@
     "@angular/router": "^5.2.6",
     "@ng-select/ng-select": "^0.21.0",
     "@types/moment": "^2.13.0",
+    "angular2-jwt": "^0.2.3",
     "angularfire2": "^5.0.0-rc.6",
     "core-js": "^2.5.3",
     "firebase": "^4.10.1",

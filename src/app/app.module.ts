@@ -6,7 +6,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import 'hammerjs';
-import {AddLancamentoComponent} from './component/add-lancamento/add-lancamento.component';
 import {LancamentoService} from './service/lancamento.service';
 import {FirebaseConfig} from './../environments/firebase.config';
 import {AngularFireModule} from 'angularfire2/index';
@@ -17,7 +16,9 @@ import {HomeComponent} from './pages/home/home.component';
 import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localeExtraPt from '@angular/common/locales/extra/pt';
-import { AdicionaLancamentoComponent } from './component/adiciona-lancamento/adiciona-lancamento.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptor} from './auth/token.interceptor';
+import {AuthService} from './auth/auth.service';
 
 registerLocaleData(localePt, 'pt', localeExtraPt);
 
@@ -25,7 +26,6 @@ registerLocaleData(localePt, 'pt', localeExtraPt);
   declarations: [
     AppComponent,
     HomeComponent,
-    AddLancamentoComponent,
     MenuUsuarioComponent,
   ],
   imports: [
@@ -35,8 +35,13 @@ registerLocaleData(localePt, 'pt', localeExtraPt);
     AngularFireModule.initializeApp(FirebaseConfig),
     SharedModule,
   ],
-  providers: [ LancamentoService, AngularFireDatabase ],
-  bootstrap: [AppComponent],
-  entryComponents: [AddLancamentoComponent]
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    AuthService,
+    LancamentoService,
+    AngularFireDatabase
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
