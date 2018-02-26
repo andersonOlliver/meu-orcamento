@@ -8,7 +8,7 @@ export class AuthService {
 
   public getToken(): string {
     // return localStorage.getItem('token');
-    return '5VSFo7saVFciIXJULmYvcBv3mTdKGor6lfma568tka_4NZoN-tIAdMlG0XkszDDKiREWb-WCY3DvFckSTSBPZ8uG5NqaBL0EIEjS5tFjLOaksomfuEOoArSMlWV8y9717KJ9GA6Idl1W7xcZECWvMAfDR_XTfa8DVekz0ym7QYfb-5ZsM1NhUQu-FYY4cLOJSl4xkbwzyEDYGW3x_56bT7RA3FWR1TZn76Yl1xh2hgsUPShwuzYhgJ554kML5twJAI2tg5ileaJ0BzkOXs308xegr3zAcPvR_1vmO5L5fvyOSabVyb0jzeSUZSORh0KXw-aLPtzzW7wECmSvErjFWd8OFbm_1mj8MwSbCa6qiWU';
+    return 'SHn6GuUFdxWyKOBfpDCsUFoBcsYOQ8c3eAAnpDbcD2WLG_88Vt3oz3Bw3M2qD2CaEgAXAIL5mzXYvs1bDUiEvzz6LjW-EZpKJNqJ0roxHqwwwo2x0PoBLN-7U-oKIpCJh0sE-S-BdQfeBXX6Kw9-BqjTDn-EPm0qbDbah5oe-EjbO346yYYA94FzvWIrOGp_loorh19gd2AA7GltOH-i9IF_pxR203Vd-iZHhNFcOiHl6X7kZWy43CJIGoi1FmI3y854eJvp9NpC0hyY0gpcuH7K_iuAUWKnKJzl591vf7ZHvbJnEOTKg4e4s-TlfjnI4wlk2B5TLbMK3Fv35VceuIMGtZwWGYdSPlMTE2Lpqro';
   }
   public isAuthenticated(): boolean {
     // get the token

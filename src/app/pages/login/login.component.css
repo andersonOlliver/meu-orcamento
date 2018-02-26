@@ -1,0 +1,73 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+mat-card{
+  margin: 20px auto !important;
+  display: block;
+  width: 450px;
+}
+
+mat-card-header, mat-card-content {
+  padding-left: calc(64px );
+  padding-right: calc(64px );
+}
+
+mat-card-title{
+  text-align: center;
+}
+
+.mat-card-content>:last-child:not(.mat-card-footer), .mat-card>:last-child:not(.mat-card-footer){
+  margin-bottom: 20px;
+}
+
+mat-card-actions {
+  padding-top: 30px;
+  padding-left: 62px;
+  padding-right: 62px;
+  padding-bottom: 30px !important;
+}
+
+
+.input-row, .row {
+  display: block;
+  margin-bottom: 12px;
+  /*position: relative;*/
+  padding: 12px 0 !important;
+  height: 65px;
+}
+
+button{
+  align-content: center;
+  align-items: center;
+  background: #30D371;
+  border: none;
+  background: #30D371;
+  border-radius: 50px;
+  color: #FFF;
+  cursor: pointer;
+  display: block;
+  font-size: large;
+  float: none;
+  margin: 0 auto;
+  padding: 12px 50px;
+}
+
+button:hover{
+  background: #30B85C;
+  border-color: #30b85c;
+}
+
+
+body.login form .input-row .error-message {
+  color: #FF9794;
+  font-size: 12px;
+  display: block;
+  margin-top: 3px;
+  text-align: center;
+  white-space: nowrap;
+}

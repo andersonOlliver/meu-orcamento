@@ -1,0 +1,32 @@
+<mat-card class=" -align-center">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <mat-card-title>
+      <mat-card-title>Acesse sua conta</mat-card-title>
+    </mat-card-title>
+
+    <mat-card-content>
+      <div class="input-row" *ngIf="loginForm.value.valid">
+        <span class="error-message">Email ou senha estão incorretos</span>
+      </div>
+      <div class="input-row">
+        <label for="email">Seu email</label>
+        <div class="group-field">
+          <input id="email" [(ngModel)]="email" type="email" name="email" title="Email" required>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label for="senha">Senha</label>
+        <div class="group-fild">
+          <input id="senha" type="password" [(ngModel)]="senha" name="Senha" title="Senha" required>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button type="submit">
+        Entrar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

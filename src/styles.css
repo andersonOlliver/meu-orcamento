@@ -2,24 +2,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
-/** {*/
-  /*!*border: none;*!*/
-  /*!*color: #555;*!*/
-  /*!*list-style: none;*!*/
-  /*!*font-family: 'CircularStd', Helvetic, Arial;*!*/
-  /*font-size: 14px;*/
-  /*font-weight: 400;*/
-  /*line-height: 16px;*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*text-align: left;*/
-  /*text-decoration: none;*/
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*!*-webkit-box-sizing: border-box;*!*/
-  /*!*-moz-box-sizing: border-box;*!*/
-  /*!*box-sizing: border-box;*!*/
-/*}*/
 
 mat-dialog-container.mat-dialog-container{
     padding: 0 !important;
@@ -52,16 +34,17 @@ form .input-row .group-field, form .row .group-field {
   display: block;
 }
 
-form .input-row .first {
-  padding-left: 0;
-}
+/*form .input-row .first {*/
+  /*padding-left: 0;*/
+/*}*/
 
-form .input-row .last {
-  padding-right: 0;
-}
+/*form .input-row .last {*/
+  /*padding-right: 0;*/
+/*}*/
 
 
-input[type="email"], input[type="text"], select, textarea {
+input[type="email"], input[type="text"], input[type="password"],
+select, textarea {
   border: 2px solid #E8EAEB;
   background: #FFFFFF;
   line-height: 18px;
@@ -86,4 +69,21 @@ input[type="email"], input[type="text"], select, textarea {
 
 .ui-calendar{
   width: 100%;
+}
+
+
+mat-card-actions {
+  padding-left: 62px;
+  padding-right: 62px;
+  padding-bottom: 30px !important;
+}
+
+
+form .input-row .error-message {
+  color: #FF9794;
+  font-size: 12px;
+  display: block;
+  margin-top: 3px;
+  text-align: center;
+  white-space: nowrap;
 }

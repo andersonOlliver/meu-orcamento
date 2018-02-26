@@ -16,9 +16,8 @@ import {HomeComponent} from './pages/home/home.component';
 import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localeExtraPt from '@angular/common/locales/extra/pt';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {TokenInterceptor} from './auth/token.interceptor';
 import {AuthService} from './auth/auth.service';
+import { LoginComponent } from './pages/login/login.component';
 
 registerLocaleData(localePt, 'pt', localeExtraPt);
 
@@ -27,6 +26,7 @@ registerLocaleData(localePt, 'pt', localeExtraPt);
     AppComponent,
     HomeComponent,
     MenuUsuarioComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -36,7 +36,6 @@ registerLocaleData(localePt, 'pt', localeExtraPt);
     SharedModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
     AuthService,
     LancamentoService,
     AngularFireDatabase
