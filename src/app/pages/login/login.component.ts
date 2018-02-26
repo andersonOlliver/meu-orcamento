@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
+import {LoginService} from '../../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   email: string;
   senha: string;
 
-  constructor(private auth: AuthService) {
+  constructor(private login: LoginService) {
   }
 
   ngOnInit() {
@@ -19,5 +20,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.email, this.senha);
+    this.login.login(this.email, this.senha)
+
   }
 }

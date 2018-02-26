@@ -16,8 +16,9 @@ import {HomeComponent} from './pages/home/home.component';
 import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localeExtraPt from '@angular/common/locales/extra/pt';
-import {AuthService} from './auth/auth.service';
-import { LoginComponent } from './pages/login/login.component';
+import {LoginComponent} from './pages/login/login.component';
+import {HttpClientModule} from '@angular/common/http';
+import {LoginService} from './service/login.service';
 
 registerLocaleData(localePt, 'pt', localeExtraPt);
 
@@ -31,14 +32,16 @@ registerLocaleData(localePt, 'pt', localeExtraPt);
   imports: [
     AppRoutingModule,
     BrowserModule, BrowserAnimationsModule,
+    HttpClientModule,
     ReactiveFormsModule, FormsModule,
     AngularFireModule.initializeApp(FirebaseConfig),
     SharedModule,
   ],
   providers: [
-    AuthService,
+    LoginService,
     LancamentoService,
-    AngularFireDatabase
+    AngularFireDatabase,
+
   ],
   bootstrap: [AppComponent]
 })
