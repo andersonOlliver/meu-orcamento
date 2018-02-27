@@ -18,8 +18,7 @@ export class LoginService {
     return this.http.post(`http://localhost:51404/token`, body.toString(), {headers, observe: 'response'})
       .map(res => {
         const token = (<any> res.body).access_token;
-        // salvar no localStorage
-        console.log(token);
+        localStorage.setItem('currentUser', token);
         return res;
       });
   }

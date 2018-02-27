@@ -14,14 +14,15 @@ export class AuthService {
   }
 
   public getToken(): string {
-    return JSON.parse(localStorage.getItem('currentUser')).token;
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      return JSON.parse(user).token;
+    }
+    return null;
   }
 
   public isAuthenticated(): boolean {
-    // get the token
     const token = this.getToken();
-    // return a boolean reflecting
-    // whether or not the token is expired
     return tokenNotExpired(null, token);
   }
 

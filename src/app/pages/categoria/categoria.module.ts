@@ -10,6 +10,7 @@ import {HttpModule} from '@angular/http';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {HeaderInterceptor} from '../../Interceptors/HeaderInterceptor';
 import {AuthService} from '../../auth/auth.service';
+import {AuthGuard} from '../../guard/auth.guard';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import {AuthService} from '../../auth/auth.service';
     CategoriaComponent
   ],
   providers: [
+    AuthGuard,
     AuthService,
     CategoriaService,
     HttpClient,

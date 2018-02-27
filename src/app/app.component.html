@@ -25,9 +25,9 @@
     <mat-list role="list">
       <a mat-list-item routerLink="/">Início</a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/lancamento">Lançamentos</a>
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="/lancamento">Lançamentos</a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="categoria">Categoria</a>
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="categoria">Categoria</a>
       <!--<mat-divider></mat-divider>-->
     </mat-list>
   </mat-sidenav>

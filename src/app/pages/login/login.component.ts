@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   senha: string;
+  msgErro: string;
 
   constructor(private login: LoginService) {
   }
@@ -19,8 +20,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.email, this.senha);
+    this.msgErro = undefined;
+
     this.login.login(this.email, this.senha)
+      .subscribe(value => {
+        console.log(value);
+      }, error2 => {
+        this.msgErro = error2.error.error_description;
+      });
 
   }
 }

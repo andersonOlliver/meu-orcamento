@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="ui-g-12 ui-g-offset-0 ui-md-8 ui-md-offset-2 ui-lg-6 ui-lg-offset-3">
   <form (ngSubmit)="onSumit()" #pessoaForm="ngForm">
     <mat-card-header>
       <mat-card-title>Cadastre-se e use grátis</mat-card-title>
@@ -14,25 +14,26 @@
       </div>
 
       <div class="input-row">
-        <div class="ui-g-6 first">
+        <div class="ui-g-12 ui-md-6 first">
           <label for="senha">Senha</label>
           <div class="group-fild">
-            <input id="senha" type="password" [(ngModel)]="pessoa.senha" name="Senha" title="Senha" required>
+            <input id="senha" type="password" [(ngModel)]="pessoa.senha" name="Senha" title="Senha"
+                   [minlength]="6" [maxlength]="30" required>
           </div>
         </div>
-        <div class="ui-g-6 last">
+        <div class="ui-g-12 ui-md-6 last">
           <label for="repita-senha">Repetir senha</label>
           <div class="group-fild">
             <input id="repita-senha" type="password" [(ngModel)]="repitaSenha" name="RepitaSenha" title="Repita senha"
-                   required>
+                   [minlength]="6" [maxlength]="30" required>
           </div>
         </div>
       </div>
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button type="submit" color="primary" [disabled]="!pessoaForm.form.valid">
-        Salvar
+      <button type="submit">
+        Começar a usar
       </button>
     </mat-card-actions>
   </form>

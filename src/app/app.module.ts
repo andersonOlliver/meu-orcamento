@@ -19,6 +19,8 @@ import localeExtraPt from '@angular/common/locales/extra/pt';
 import {LoginComponent} from './pages/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginService} from './service/login.service';
+import {AuthGuard} from './guard/auth.guard';
+import {AuthService} from './auth/auth.service';
 
 registerLocaleData(localePt, 'pt', localeExtraPt);
 
@@ -38,12 +40,15 @@ registerLocaleData(localePt, 'pt', localeExtraPt);
     SharedModule,
   ],
   providers: [
+    AuthGuard,
+    AuthService,
     LoginService,
     LancamentoService,
     AngularFireDatabase,
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {
 }

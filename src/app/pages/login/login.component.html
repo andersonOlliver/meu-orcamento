@@ -5,8 +5,8 @@
     </mat-card-title>
 
     <mat-card-content>
-      <div class="input-row" *ngIf="loginForm.value.valid">
-        <span class="error-message">Email ou senha estão incorretos</span>
+      <div class="input-row" >
+        <span *ngIf="msgErro" class="error-message">{{msgErro}}</span>
       </div>
       <div class="input-row">
         <label for="email">Seu email</label>

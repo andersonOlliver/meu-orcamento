@@ -2,9 +2,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
-
-mat-dialog-container.mat-dialog-container{
-    padding: 0 !important;
+mat-dialog-container.mat-dialog-container {
+  padding: 0 !important;
 }
 
 button.mat-fab {
@@ -13,7 +12,7 @@ button.mat-fab {
   right: 15px;
 }
 
-a{
+a {
   text-decoration: none;
   cursor: pointer;
 }
@@ -35,20 +34,19 @@ form .input-row .group-field, form .row .group-field {
 }
 
 /*form .input-row .first {*/
-  /*padding-left: 0;*/
+/*padding-left: 0;*/
 /*}*/
 
 /*form .input-row .last {*/
-  /*padding-right: 0;*/
+/*padding-right: 0;*/
 /*}*/
-
 
 input[type="email"], input[type="text"], input[type="password"],
 select, textarea {
   border: 2px solid #E8EAEB;
   background: #FFFFFF;
   line-height: 18px;
-  padding: 7px 8px;
+  padding: 10px;
   float: left;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -67,17 +65,20 @@ select, textarea {
   appearance: none;
 }
 
-.ui-calendar{
-  width: 100%;
+textarea:focus, input[type=password]:focus, input[type=email]:focus {
+  border-color: #d5d5d5 !important;
+  outline: 0;
 }
 
+.ui-calendar {
+  width: 100%;
+}
 
 mat-card-actions {
   padding-left: 62px;
   padding-right: 62px;
   padding-bottom: 30px !important;
 }
-
 
 form .input-row .error-message {
   color: #FF9794;

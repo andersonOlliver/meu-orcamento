@@ -15,8 +15,6 @@ export class HeaderInterceptor implements HttpInterceptor {
         'Authorization': `Bearer ${this.auth.getToken()}`
       }
     });
-    console.log('Cloned Request');
-    console.log(dummyrequest);
     return next.handle(dummyrequest);
   }
 
