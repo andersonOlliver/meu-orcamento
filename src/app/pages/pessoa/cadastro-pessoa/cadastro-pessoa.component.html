@@ -1,15 +1,42 @@
 <mat-card class="ui-g-12 ui-g-offset-0 ui-md-8 ui-md-offset-2 ui-lg-6 ui-lg-offset-3">
-  <form (ngSubmit)="onSumit()" #pessoaForm="ngForm">
+  <form (ngSubmit)="onSumit(pessoaForm)" #pessoaForm="ngForm">
     <mat-card-header>
       <mat-card-title>Cadastre-se e use grátis</mat-card-title>
       <mat-card-subtitle>Sem contratos, sem compromisso.</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
+      <div class="input-row-erro">
+        <ul *ngIf="errors">
+          <li *ngFor="let erro of errors"><span class="error-message">{{erro}}</span></li>
+        </ul>
+      </div>
+
+      <div class="input-row">
+        <div class="ui-g-12 ui-md-6 first">
+          <label for="primeiro-nome">Primeiro Nome</label>
+          <div class="group-field">
+            <input id="primeiro-nome" [(ngModel)]="pessoa.primeiroNome" type="text" name="primeiroNome"
+                   title="Primeiro Nome" [maxlength]="50" [required]="true" #primeiroNome="ngModel">
+          </div>
+          <span *ngIf="primeiroNome.invalid && primeiroNome.touched">é obrigatório</span>
+        </div>
+        <div class="ui-g-12 ui-md-6 last">
+          <label for="ultimo-nome">Ultimo Nome</label>
+          <div class="group-field">
+            <input id="ultimo-nome" [(ngModel)]="pessoa.ultimoNome" type="text" name="ultimooNome"
+                   title="ultimo Nome" [maxlength]="50" [required]="true" #ultimoNome="ngModel">
+          </div>
+          <span *ngIf="primeiroNome.invalid && primeiroNome.touched">é obrigatório</span>
+        </div>
+      </div>
+
       <div class="input-row">
         <label for="email">Seu email</label>
         <div class="group-field">
-          <input id="email" [(ngModel)]="pessoa.email" type="email" name="email" title="Email" required>
+          <input id="email" [(ngModel)]="pessoa.email" type="email" name="email" title="Email" [required]="true"
+                 #email="ngModel">
+          <span *ngIf="email.invalid && email.touched">é obrigatório</span>
         </div>
       </div>
 
@@ -17,15 +44,15 @@
         <div class="ui-g-12 ui-md-6 first">
           <label for="senha">Senha</label>
           <div class="group-fild">
-            <input id="senha" type="password" [(ngModel)]="pessoa.senha" name="Senha" title="Senha"
-                   [minlength]="6" [maxlength]="30" required>
+            <input id="senha" type="password" [(ngModel)]="pessoa.senha" name="senha" title="Senha"
+                   [minlength]="6" [maxlength]="30" [required]="true">
           </div>
         </div>
         <div class="ui-g-12 ui-md-6 last">
           <label for="repita-senha">Repetir senha</label>
           <div class="group-fild">
-            <input id="repita-senha" type="password" [(ngModel)]="repitaSenha" name="RepitaSenha" title="Repita senha"
-                   [minlength]="6" [maxlength]="30" required>
+            <input id="repita-senha" type="password" [(ngModel)]="repitaSenha" name="repitaSenha" title="Repita senha"
+                   [minlength]="6" [maxlength]="30" [required]="true">
           </div>
         </div>
       </div>
@@ -33,7 +60,7 @@
 
     <mat-card-actions>
       <button type="submit">
-        Começar a usar
+        {{msgBotao}}
       </button>
     </mat-card-actions>
   </form>

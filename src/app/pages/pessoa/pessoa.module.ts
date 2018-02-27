@@ -3,9 +3,10 @@ import {CommonModule} from '@angular/common';
 
 import {PessoaRoutingModule} from './pessoa-routing.module';
 import {CadastroPessoaComponent} from './cadastro-pessoa/cadastro-pessoa.component';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/module/shared.module';
 import {PessoaComponent} from './pessoa.component';
 import {UsuarioService} from '../../service/usuario.service';
+import {ErrorService} from '../../shared/service/error.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {UsuarioService} from '../../service/usuario.service';
     PessoaComponent
   ],
   providers: [
+    ErrorService,
     UsuarioService
   ]
 })

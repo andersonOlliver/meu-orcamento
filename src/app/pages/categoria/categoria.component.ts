@@ -42,7 +42,6 @@ export class CategoriaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: Categoria) => {
-      console.log('The dialog was closed');
       if (result) {
         this.categorias.push(result);
       }

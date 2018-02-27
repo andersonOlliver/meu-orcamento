@@ -57,17 +57,21 @@ button{
   padding: 12px 50px;
 }
 
-button:hover{
+button:hover, button:focus {
   background: #30B85C;
   border-color: #30b85c;
 }
 
 
-body.login form .input-row .error-message {
+body.login form .input-row-erro .error-message {
   color: #FF9794;
   font-size: 12px;
   display: block;
   margin-top: 3px;
   text-align: center;
   white-space: nowrap;
+}
+
+.input-row-erro{
+  height: 20px;
 }

@@ -11,7 +11,7 @@ import {FirebaseConfig} from './../environments/firebase.config';
 import {AngularFireModule} from 'angularfire2/index';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {MenuUsuarioComponent} from './component/menu-usuario/menu-usuario.component';
-import {SharedModule} from './shared/shared.module';
+import {SharedModule} from './shared/module/shared.module';
 import {HomeComponent} from './pages/home/home.component';
 import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';

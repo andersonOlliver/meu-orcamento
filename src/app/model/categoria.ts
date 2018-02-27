@@ -4,7 +4,7 @@ export class Categoria {
   categoriaPai?: Categoria;
   cor?: string;
 
-  constructor(cor?: string){
+  constructor(cor?: string) {
     this.cor = cor;
   }
 }

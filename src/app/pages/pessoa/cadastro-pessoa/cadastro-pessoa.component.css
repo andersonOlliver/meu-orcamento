@@ -13,11 +13,6 @@ mat-card {
   /*width: 450px;*/
 }
 
-mat-card-header, mat-card-content {
-  padding-left: calc(64px);
-  padding-right: calc(64px);
-  align-items: center;
-}
 
 .mat-card-header{
   display: block;
@@ -38,12 +33,6 @@ mat-card-title {
   margin-bottom: 20px;
 }
 
-mat-card-actions {
-  padding-top: 30px;
-  padding-left: 62px;
-  padding-right: 62px;
-  padding-bottom: 30px !important;
-}
 
 .input-row, .row {
   display: block;
@@ -66,8 +55,9 @@ button {
   font-size: large;
   float: none;
   margin: 0 auto;
-  padding: 12px 60px;
+  padding: 14px 50px;
   outline: 0;
+  width: 280px;
 }
 
 button:hover, button:focus {
@@ -88,10 +78,35 @@ body.login form .input-row .error-message {
   padding-left: 0;
   padding-right: 0;
 }
+@media screen and (min-width: 700px) {
+  .first {
+    padding-right: 5px;
+  }
 
-.first{
-  padding-right: 5px;
+  .last {
+    padding-left: 5px;
+  }
+
+  mat-card-actions {
+    padding-top: 30px;
+    padding-left: 62px;
+    padding-right: 62px;
+    padding-bottom: 30px !important;
+  }
+
+  mat-card-header, mat-card-content {
+    padding-left: calc(64px);
+    padding-right: calc(64px);
+    align-items: center;
+  }
+
 }
-.last{
-  padding-left: 5px;
+
+.input-row-erro{
+  min-height: 20px;
+  height: auto;
+}
+
+ul{
+  list-style: none;
 }

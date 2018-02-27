@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {CategoriaRoutingModule} from './categoria-routing.module';
 import {CategoriaComponent} from './categoria.component';
 import {CategoriaService} from '../../service/categoria.service';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/module/shared.module';
 import {AdicionaCategoriaComponent} from '../../component/adiciona-categoria/adiciona-categoria.component';
 import {HttpModule} from '@angular/http';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';

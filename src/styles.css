@@ -65,7 +65,7 @@ select, textarea {
   appearance: none;
 }
 
-textarea:focus, input[type=password]:focus, input[type=email]:focus {
+textarea:focus, input[type=password]:focus, input[type=email]:focus, input[type=text]:focus {
   border-color: #d5d5d5 !important;
   outline: 0;
 }
@@ -80,11 +80,20 @@ mat-card-actions {
   padding-bottom: 30px !important;
 }
 
-form .input-row .error-message {
+form .input-row-erro .error-message {
   color: #FF9794;
   font-size: 12px;
   display: block;
   margin-top: 3px;
   text-align: center;
   white-space: nowrap;
+}
+
+.ng-invalid.ng-touched:not(form) {
+  color: #FF9794;
+  border: 1px solid #FF9794 !important;
+}
+
+button{
+  outline: 0;
 }

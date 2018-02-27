@@ -1,15 +1,16 @@
 <mat-toolbar class="example-header" color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon aria-label="Example icon-button with a heart icon">menu</mat-icon>
+      <mat-icon aria-label="Menu">menu</mat-icon>
     </button>
 
     Orçamento
 
     <span class="example-spacer"></span>
-    <span>
-      <mat-icon class="example-icon">settings</mat-icon>
-      <span (click)="openUserMenu()" >
+    <button *ngIf="!isLogged" mat-button routerLink="/login">Entrar</button>
+    <span *ngIf="isLogged">
+      <mat-icon class="example-icon" aria-label="Configurações">settings</mat-icon>
+      <span (click)="openUserMenu()" aria-label="profile">
         <img class="profile" src="assets/img/photo.jpg" alt="Profile">
       </span>
     </span>
@@ -20,14 +21,13 @@
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" opened="false" class="example-sidenav" [fixedInViewport]="options.value.fixed"
-               [fixedTopGap]="options.value.top"
-               [fixedBottomGap]="options.value.bottom">
+               [fixedTopGap]="options.value.top" [fixedBottomGap]="options.value.bottom">
     <mat-list role="list">
-      <a mat-list-item routerLink="/">Início</a>
+      <a mat-list-item routerLink="/" aria-label="Início">Início</a>
       <mat-divider></mat-divider>
-      <a mat-list-item (click)="sidenav.toggle()" routerLink="/lancamento">Lançamentos</a>
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="/lancamento" aria-label="Lançamentos">Lançamentos</a>
       <mat-divider></mat-divider>
-      <a mat-list-item (click)="sidenav.toggle()" routerLink="categoria">Categoria</a>
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="categoria" aria-label="Categoria">Categoria</a>
       <!--<mat-divider></mat-divider>-->
     </mat-list>
   </mat-sidenav>

@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {AuthService} from '../../auth/auth.service';
+import {LoginService} from '../../service/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'menu-usuario',
@@ -7,11 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuUsuarioComponent implements OnInit {
 
-  @Input() isOpen: boolean = false;
+  @Input() isOpen = false;
 
-  constructor() { }
+  constructor(private loginService: LoginService,
+              private router: Router) {
+  }
 
   ngOnInit() {
   }
 
+  onLogout() {
+    this.loginService.logout();
+    this.router.navigate(['/']);
+  }
 }

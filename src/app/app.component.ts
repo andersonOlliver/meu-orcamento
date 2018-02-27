@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {AuthService} from './auth/auth.service';
 
 
 @Component({
@@ -11,8 +12,11 @@ export class AppComponent {
   options: FormGroup;
   usuario: string;
   openMenu = false;
+  isLogged = false;
 
-  constructor(fb: FormBuilder) {
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.authService.eventAuthenticated.subscribe((hasAuthenticated: boolean) => this.isLogged = hasAuthenticated);
+
     this.options = fb.group({
       'fixed': false,
       'top': 0,
