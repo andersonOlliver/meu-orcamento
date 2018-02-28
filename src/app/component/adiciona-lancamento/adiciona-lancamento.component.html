@@ -10,7 +10,7 @@
         <label for="descricao">Descrição</label>
         <div class="group-fild">
           <input id="descricao" type="text" [(ngModel)]="lancamento.descricao" name="Descrição" title="Descrição"
-                 maxlength="100" required>
+                 maxlength="100" pInputText required>
         </div>
       </div>
 
@@ -18,13 +18,15 @@
         <div class="ui-g-6 first">
           <label for="valor">Valor</label>
           <div class="group-fild">
-            <input id="valor" type="text" [(ngModel)]="lancamento.valor" name="Valor" title="Valor" required>
+            <input id="valor" type="text" [(ngModel)]="lancamento.valor" name="Valor" title="Valor"
+                   required>
           </div>
         </div>
         <div class="ui-g-6 last">
-          <label for="valor">Data</label>
+          <label for="data-lancamento">Data</label>
           <div class="group-fild">
-            <p-calendar [(ngModel)]="lancamento.dataLancamento" showButtonBar="true" name="DataLancamento"
+            <p-calendar id="data-lancamento" [(ngModel)]="lancamento.dataLancamento" showButtonBar="true"
+                        name="DataLancamento" dateFormat="dd/mm/yy"
                         [locale]="pt"></p-calendar>
           </div>
         </div>

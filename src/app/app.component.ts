@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from './auth/auth.service';
 
@@ -15,7 +15,9 @@ export class AppComponent {
   isLogged = false;
 
   constructor(private authService: AuthService, private fb: FormBuilder) {
-    this.authService.eventAuthenticated.subscribe((hasAuthenticated: boolean) => this.isLogged = hasAuthenticated);
+    this.authService.eventAuthenticated.subscribe((hasAuthenticated: boolean) => {
+      this.isLogged = hasAuthenticated;
+    });
 
     this.options = fb.group({
       'fixed': false,

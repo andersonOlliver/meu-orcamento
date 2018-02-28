@@ -11,7 +11,7 @@ export class AuthService {
   cachedRequests: Array<HttpRequest<any>> = [];
   public eventAuthenticated = new EventEmitter<boolean>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,) {
   }
 
   public getToken(): string {
@@ -25,13 +25,17 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const token = this.getToken();
     // return tokenNotExpired(null, token);
-    return !isNullOrUndefined(token);
+    let hasAuthenticated = !isNullOrUndefined(token);
+
+      this.eventAuthenticated.emit(hasAuthenticated);
+
+
+    return hasAuthenticated;
   }
 
   public collectFailedRequest(request): void {
     this.cachedRequests.push(request);
   }
-
 
 
 }

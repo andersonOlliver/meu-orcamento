@@ -36,11 +36,11 @@ mat-card-actions {
   width: 100%;
 }
 
-.input-row, .row {
-  display: block;
-  margin-bottom: 12px;
-  position: relative;
-}
+/*.input-row, .row {*/
+  /*display: block;*/
+  /*margin-bottom: 12px;*/
+  /*position: relative;*/
+/*}*/
 
 .input-row label, .row label {
   font-size: 14px;
@@ -49,6 +49,7 @@ mat-card-actions {
   text-align: left;
   display: block;
   margin-bottom: 3px;
+  max-height: 20px;
 }
 
 .input-row .group-field, .row .group-field {
