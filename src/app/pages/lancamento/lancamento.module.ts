@@ -6,8 +6,9 @@ import {LancamentoService} from '../../service/lancamento.service';
 import {LancamentoComponent} from './lancamento.component';
 import {SharedModule} from '../../shared/module/shared.module';
 import {CategoriaService} from '../../service/categoria.service';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {AdicionaLancamentoComponent} from '../../component/adiciona-lancamento/adiciona-lancamento.component';
+import {HeaderInterceptor} from '../../Interceptors/HeaderInterceptor';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import {AdicionaLancamentoComponent} from '../../component/adiciona-lancamento/a
   providers: [
     CategoriaService,
     HttpClient,
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     LancamentoService
   ],
   entryComponents: [

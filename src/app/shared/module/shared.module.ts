@@ -7,13 +7,14 @@ import {
   MatNativeDateModule, MatSelectModule, MatSidenavModule, MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {CalendarModule, ColorPickerModule} from 'primeng/primeng';
+import {CalendarModule, ColorPickerModule, DropdownModule} from 'primeng/primeng';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
     CalendarModule,
     ColorPickerModule,
+    DropdownModule,
     FormsModule,
     MatDividerModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
@@ -24,6 +25,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
   exports: [
     CalendarModule,
     ColorPickerModule,
+    DropdownModule,
     FormsModule,
     MatDividerModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,

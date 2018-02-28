@@ -34,7 +34,7 @@ export class LancamentoComponent implements OnInit {
   }
 
 
-  openDialog(): void {
+  openAdicionaLancamento(): void {
     const dialogRef = this.dialog.open(AdicionaLancamentoComponent, {
       width: '550px',
       data: {usuario: this.usuario}

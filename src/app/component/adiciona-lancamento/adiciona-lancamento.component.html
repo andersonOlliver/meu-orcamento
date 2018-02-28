@@ -24,7 +24,8 @@
         <div class="ui-g-6 last">
           <label for="valor">Data</label>
           <div class="group-fild">
-            <p-calendar [(ngModel)]="lancamento.dataLancamento" showButtonBar="true" name="DataLancamento"></p-calendar>
+            <p-calendar [(ngModel)]="lancamento.dataLancamento" showButtonBar="true" name="DataLancamento"
+                        [locale]="pt"></p-calendar>
           </div>
         </div>
       </div>
@@ -32,9 +33,8 @@
       <div class="input-row">
         <label for="categoria">Categoria</label>
         <div class="group-fild">
-          <ng-select id="categoria" [items]="categorias" [(ngModel)]="lancamento.categoriaId" bindLabel="titulo"
-                     bindValue="categoriaId" name="categoria">
-          </ng-select>
+          <p-dropdown id="categoria" [options]="categorias" [(ngModel)]="lancamento.categoria" optionLabel="titulo"
+                      name="categoria"></p-dropdown>
         </div>
       </div>
     </mat-card-content>
@@ -45,4 +45,5 @@
       </button>
     </mat-card-actions>
   </form>
+  {{lancamento | json}}
 </mat-card>

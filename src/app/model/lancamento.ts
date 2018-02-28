@@ -6,11 +6,20 @@ export class Lancamento {
   valor: number;
   dataLancamento: Date | number | string;
   categoriaId: AAGUID;
-  categoria: Categoria;
+  private _categoria: Categoria;
   tipoLancamento?: TipoLancamento | number;
 
   constructor(dataLancamento?: Date) {
     this.dataLancamento = dataLancamento;
+  }
+
+  public get categoria(){
+    return this._categoria;
+  }
+
+  public set categoria(categoria: Categoria){
+    this.categoriaId = categoria.categoriaId;
+    this._categoria = categoria;
   }
 }
 
