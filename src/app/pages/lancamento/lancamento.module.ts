@@ -9,6 +9,8 @@ import {CategoriaService} from '../../service/categoria.service';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {AdicionaLancamentoComponent} from '../../component/adiciona-lancamento/adiciona-lancamento.component';
 import {HeaderInterceptor} from '../../Interceptors/HeaderInterceptor';
+import {MoneyMaskDirective} from '../../shared/directive/money-mask.directive';
+
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import {HeaderInterceptor} from '../../Interceptors/HeaderInterceptor';
   ],
   declarations: [
     AdicionaLancamentoComponent,
-    LancamentoComponent
+    LancamentoComponent,
   ],
   providers: [
     CategoriaService,

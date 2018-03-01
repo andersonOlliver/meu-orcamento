@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginService} from './service/login.service';
 import {AuthGuard} from './guard/auth.guard';
 import {AuthService} from './auth/auth.service';
+import { MoneyMaskDirective } from './shared/directive/money-mask.directive';
 
 registerLocaleData(localePt, 'pt', localeExtraPt);
 

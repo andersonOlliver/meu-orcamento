@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {CalendarModule, ColorPickerModule, DropdownModule, InputMaskModule} from 'primeng/primeng';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {MaskDirective} from '../directive/mask.directive';
+import {MoneyMaskDirective} from '../directive/money-mask.directive';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {MaskDirective} from '../directive/mask.directive';
 
   ],
   declarations: [
-    MaskDirective
+    MaskDirective,
+    MoneyMaskDirective
   ],
   exports: [
     CalendarModule,
@@ -39,6 +41,7 @@ import {MaskDirective} from '../directive/mask.directive';
     MatSidenavModule, MatIconModule, MatToolbarModule, MatListModule, MatDialogModule,
     MatCheckboxModule, MatFormFieldModule, MatMenuModule, MatInputModule, MatButtonModule,
     MatCardModule, MatSelectModule, MatTableModule, MatDatepickerModule, MatNativeDateModule,
+    MoneyMaskDirective,
     NgSelectModule
   ]
 })

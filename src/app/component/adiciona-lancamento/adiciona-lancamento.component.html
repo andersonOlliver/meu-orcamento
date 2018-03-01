@@ -18,7 +18,8 @@
         <div class="ui-g-6 first">
           <label for="valor">Valor</label>
           <div class="group-fild">
-            <input id="valor" type="text" [(ngModel)]="lancamento.valor" name="Valor" title="Valor"
+            <input id="valor" type="text" [autofocus]="false" [(ngModel)]="lancamento.valor"
+                    name="Valor" title="Valor" appMoneyMask
                    required>
           </div>
         </div>
@@ -47,5 +48,4 @@
       </button>
     </mat-card-actions>
   </form>
-  {{lancamento | json}}
 </mat-card>
